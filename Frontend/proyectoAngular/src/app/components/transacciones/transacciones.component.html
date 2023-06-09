@@ -1,0 +1,40 @@
+<main>
+<div class="bg-info-subtle formulario1">
+    <h1>Convertidor de Moneda</h1>
+    <div class="mb-3">
+        <div><h4>Ingrese su Email:</h4></div>
+        <label for="email">Email: </label>
+        <input type="text" name="emailCliente" id="email" [(ngModel)]="emailCliente">
+      </div>
+      <div class="mb-3">
+        <div><h4 >Ingrese cantidad a convertir:</h4></div>
+        <input class="select1" type="text" [(ngModel)]="resultadoLista">
+        
+      </div>
+      <div class="mb-3">
+        <div><h4>Seleccione Moneda Origen:</h4></div>
+        <select class="select1" id="select1" [(ngModel)]="origenLista">
+          <option *ngFor="let moneda1 of array" >{{moneda1}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <div ><h4>Seleccione Moneda Destino:</h4></div>
+        <select class="select1" id="select2" [(ngModel)]="destinoLista">
+          <option *ngFor="let moneda2 of array" >{{moneda2}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="obtenerParam()">Convertir</button>
+      <div class="row justify-content-center mt-3">
+        <div class="alert alert-primary" role="alert">
+          El resultado de la conversion es: {{resultadoConversion.result | currency: destinoLista }}
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="enviarDatos(origenLista,resultadoLista,destinoLista,cantidadDestino,emailCliente,tasa)">Agregar</button>
+      </div>
+
+      <a routerLink="/TransaccionesList" class="btn btn-dark">Lista de Transacciones</a>
+  </div>
+    
+
+
+
+</main>

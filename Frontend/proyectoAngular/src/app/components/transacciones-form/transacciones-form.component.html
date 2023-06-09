@@ -1,0 +1,133 @@
+<div class="alert alert-dark">
+    <h1>Transacciones</h1>
+</div>
+<div class="tabla">
+    <div class="row">
+        <div class="col-6">
+            <form class="row g-3">
+                <div class="col-auto">
+                    <label for="inputPassword2">Filtrar por Email del Cliente</label>
+                    <input type="text" class="form-control" id="inputPassword2" placeholder="Email" name="mail"
+                        [(ngModel)]="mail">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-dark mb-3" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" (click)="getByEmail(mail)">Buscar por Email</button>
+                </div>
+            </form>
+        </div>
+            <div class="col-6">
+            <form class="row g-3">
+                <div class="col-auto">
+                    <label for="inputPassword2">Filtrar por Moneda</label>
+                    <input type="text" class="form-control" id="inputPassword2" placeholder="Moneda" name="mon"
+                        [(ngModel)]="mon">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-dark mb-3" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1" (click)="getByMoneda(mon)">Buscar por Moneda</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped table-dark ">
+        <thead>
+            <tr>
+                <th scope="col">Moneda de Origen</th>
+                <th scope="col">Cantida de Origen</th>
+                <th scope="col">Moneda de Destino</th>
+                <th scope="col">Cantidad de Destino</th>
+                <th scope="col">Email del Cliente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let trans of obtenido">
+                <th scope="row">{{trans.monedaOrigen}}</th>
+                <td>{{trans.cantidadOrigen}}</td>
+                <td>{{trans.monedaDestino}}</td>
+                <td>{{trans.cantidadDestino}}</td>
+                <td>{{trans.emailCliente}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Modal EMAIL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Transacciones por Moneda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="tabla">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Moneda de Origen</th>
+                                <th scope="col">Cantidad de Origen</th>
+                                <th scope="col">Moneda de Destino</th>
+                                <th scope="col">Cantidad de Destino</th>
+                                <th scope="col">Email del Cliente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let trans of filtrado">
+                                <th scope="row">{{trans.monedaOrigen}}</th>
+                                <td>{{trans.cantidadOrigen}}</td>
+                                <td>{{trans.monedaDestino}}</td>
+                                <td>{{trans.cantidadDestino}}</td>
+                                <td>{{trans.emailCliente}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal CURRENCY -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Transacciones por Email</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="tabla">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Moneda de Origen</th>
+                                <th scope="col">Cantidad de Origen</th>
+                                <th scope="col">Moneda de Destino</th>
+                                <th scope="col">Cantidad de Destino</th>
+                                <th scope="col">Email del Cliente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let trans of currency">
+                                <th scope="row">{{trans.monedaOrigen}}</th>
+                                <td>{{trans.cantidadOrigen}}</td>
+                                <td>{{trans.monedaDestino}}</td>
+                                <td>{{trans.cantidadDestino}}</td>
+                                <td>{{trans.emailCliente}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>

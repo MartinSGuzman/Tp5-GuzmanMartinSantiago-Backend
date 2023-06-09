@@ -1,0 +1,30 @@
+<form>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del Producto</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre">
+
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion del Producto</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion">
+        
+    </div>
+    <div class="mb-3">
+        <label for="img">Link de Imagen del Producto</label>
+        <input type="text" class="form-control" id="img" name="imagen" [(ngModel)]="imagen">
+    </div>
+    <div class="mb-3">
+        <label for="precio">Precio del Producto</label>
+        <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="precio">
+    </div>
+    <div class="mb-3">
+        <label for="stock">Cantidad a Ingresar</label>
+        <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="stock">
+    </div>
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="myCheckbox" name="destacado" [(ngModel)]="destacado">
+        <label class="form-check-label" for="myCheckbox">Mi Form Check</label>
+        
+      </div>
+    <button type="submit" class="btn btn-primary" (click)="cargarProducto(nombre,descripcion,imagen,precio,stock,destacado)">Guardar Producto</button>
+</form>

@@ -1,0 +1,25 @@
+
+
+<body>
+
+    <div>
+        <label for="btn">Ingresar Nuevo Producto</label>
+        <a routerLink="/ProductoForm" class="btn btn-primary">Formulario de Producto</a>
+    </div>
+    <div class="row">
+        
+            <div class="card rows col-3" style="width: 18rem;" *ngFor="let producto of obtenido">
+                <img [src]="producto.imagen" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{producto.nombre}}</h5>
+                  <p class="card-text">{{producto.descripcion}}</p>
+                </div>
+              </div>
+        
+    </div>
+
+</body>
+
+<footer>
+
+</footer>
